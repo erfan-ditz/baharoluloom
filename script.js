@@ -378,7 +378,7 @@ const teachersData = {
     bio: "تدریس در زمینه اتو مکانیک و مدارس و آموزشگاه"
   },
   teacher7: {
-    name: "  اللّیاری",
+    name: "  الهیاری",
     subject: "مدرس زبان انگلیسی",
     experience: "3 سال سابقه تدریس",
     education: "کارشناسی   زبان انگلیسی",
@@ -432,6 +432,7 @@ document.addEventListener('keydown', function (e) {
     hideTeacherModal();
   }
 });
+
 
 
 
