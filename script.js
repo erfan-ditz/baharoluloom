@@ -437,3 +437,267 @@ document.addEventListener('keydown', function (e) {
 
 
 
+
+// Sample teachers data with their messages
+const teachersData = {
+    'teacher1': {
+        name: 'آقای احمدی',
+        messages: [
+            {
+                date: '1403/08/15',
+                content: 'والدین گرامی، لطفاً برای جلسه والدین در روز پنج‌شنبه ساعت 3 عصر در مدرسه حضور یابید. موضوع جلسه بررسی پیشرفت تحصیلی فرزندتان خواهد بود.'
+            },
+            {
+                date: '1403/08/10',
+                content: 'فرزند شما در امتحان ریاضی نمره قابل قبولی کسب کرده است. لطفاً بیشتر روی تمرین‌های خانگی تأکید کنید.'
+            },
+            {
+                date: '1403/08/05',
+                content: 'یادآوری: فردا آخرین مهلت تحویل پروژه علوم است. فرزندتان هنوز پروژه خود را تحویل نداده است.'
+            }
+        ]
+    },
+    'teacher2': {
+        name: 'خانم رضایی',
+        messages: [
+            {
+                date: '1403/08/12',
+                content: 'فرزند شما در کلاس زبان انگلیسی پیشرفت خوبی داشته است. لطفاً او را تشویق کنید تا به مطالعه ادامه دهد.'
+            },
+            {
+                date: '1403/08/08',
+                content: 'والدین محترم، لطفاً کتاب‌های درسی فرزندتان را بررسی کنید. برخی از کتاب‌ها ناقص یا فراموش شده‌اند.'
+            }
+        ]
+    },
+    'teacher3': {
+        name: 'آقای محمدی',
+        messages: [
+            {
+                date: '1403/08/14',
+                content: 'فرزند شما در درس تاریخ عملکرد بسیار خوبی دارد. او همیشه فعال و مشارکت‌جو است.'
+            },
+            {
+                date: '1403/08/07',
+                content: 'توصیه می‌شود فرزندتان بیشتر به کتاب‌خوانی مشغول شود. این کار به تقویت مهارت‌های زبانی او کمک خواهد کرد.'
+            },
+            {
+                date: '1403/08/02',
+                content: 'والدین گرامی، فرزندتان در فعالیت‌های گروهی مشارکت کمی دارد. لطفاً با او در این زمینه صحبت کنید.'
+            }
+        ]
+    },
+    'teacher4': {
+        name: 'خانم صادقی',
+        messages: [
+            {
+                date: '1403/08/13',
+                content: 'فرزند شما در درس علوم نمرات عالی کسب کرده است. لطفاً او را تشویق کنید.'
+            },
+            {
+                date: '1403/08/06',
+                content: 'یادآوری: اردوی علمی هفته آینده برگزار خواهد شد. لطفاً برگه رضایت را امضا کرده و ارسال کنید.'
+            }
+        ]
+    },
+    'teacher5': {
+        name: 'آقای کریمی',
+        messages: [
+            {
+                date: '1403/08/11',
+                content: 'فرزند شما در درس ورزش بسیار فعال است و روحیه تیمی خوبی دارد.'
+            },
+            {
+                date: '1403/08/04',
+                content: 'لطفاً لباس‌های ورزشی مناسب برای فرزندتان تهیه کنید. او نیاز به کفش ورزشی جدید دارد.'
+            },
+            {
+                date: '1403/07/28',
+                content: 'والدین محترم، مسابقات ورزشی مدرسه ماه آینده برگزار می‌شود. فرزندتان می‌تواند در رشته دو شرکت کند.'
+            }
+        ]
+    },
+    'teacher6': {
+        name: 'خانم حسینی',
+        messages: [
+            {
+                date: '1403/08/09',
+                content: 'فرزند شما در هنرهای تجسمی استعداد فوق‌العاده‌ای دارد. توصیه می‌شود در کلاس‌های فوق‌برنامه شرکت کند.'
+            },
+            {
+                date: '1403/08/03',
+                content: 'لطفاً لوازم نقاشی کامل برای فرزندتان تهیه کنید. فهرست لوازم را از دفتر مدرسه دریافت کنید.'
+            }
+        ]
+    },
+    'teacher7': {
+        name: 'آقای نوری',
+        messages: [
+            {
+                date: '1403/08/16',
+                content: 'فرزند شما در درس کامپیوتر پیشرفت چشمگیری داشته است. او با نرم‌افزارهای جدید به خوبی کار می‌کند.'
+            }
+        ]
+    },
+    'teacher8': {
+        name: 'خانم طاهری',
+        messages: [
+            {
+                date: '1403/08/01',
+                content: 'والدین محترم، فرزندتان در درس موسیقی بسیار خلاق است. پیشنهاد می‌شود در کلاس‌های آموزش ساز شرکت کند.'
+            },
+            {
+                date: '1403/07/25',
+                content: 'کنسرت مدرسه ماه آینده برگزار خواهد شد. فرزندتان برای شرکت در گروه کر انتخاب شده است.'
+            }
+        ]
+    }
+};
+
+// DOM elements
+const teachersTableBody = document.getElementById('teachersTableBody');
+const messagesSection = document.getElementById('messagesSection');
+const selectedTeacherName = document.getElementById('selectedTeacherName');
+const messagesList = document.getElementById('messagesList');
+const closeMessagesBtn = document.getElementById('closeMessages');
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    loadTeachers();
+    setupEventListeners();
+});
+
+// Load teachers into the table
+function loadTeachers() {
+    teachersTableBody.innerHTML = '';
+    
+    Object.keys(teachersData).forEach(teacherId => {
+        const teacher = teachersData[teacherId];
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="teacher-name">${teacher.name}</td>
+            <td>
+                <button class="view-messages-btn" onclick="showTeacherMessages('${teacherId}')">
+                    <i class="fas fa-envelope"></i>
+                    مشاهده پیام‌ها
+                </button>
+            </td>
+        `;
+        
+        // Add click event to the entire row
+        row.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('view-messages-btn')) {
+                showTeacherMessages(teacherId);
+            }
+        });
+        
+        teachersTableBody.appendChild(row);
+    });
+}
+
+// Show messages for a specific teacher
+function showTeacherMessages(teacherId) {
+    const teacher = teachersData[teacherId];
+    if (!teacher) return;
+    
+    // Update teacher name in header
+    selectedTeacherName.textContent = `پیام‌های ${teacher.name}`;
+    
+    // Clear previous messages
+    messagesList.innerHTML = '';
+    
+    // Check if teacher has messages
+    if (!teacher.messages || teacher.messages.length === 0) {
+        messagesList.innerHTML = `
+            <div class="no-messages">
+                <i class="fas fa-inbox"></i>
+                <p>هیچ پیامی برای این معلم ثبت نشده است</p>
+            </div>
+        `;
+    } else {
+        // Sort messages by date (newest first)
+        const sortedMessages = teacher.messages.sort((a, b) => {
+            // Convert Persian date to comparable format
+            const dateA = a.date.split('/').map(num => parseInt(num));
+            const dateB = b.date.split('/').map(num => parseInt(num));
+            
+            // Compare year, month, day
+            for (let i = 0; i < 3; i++) {
+                if (dateA[i] !== dateB[i]) {
+                    return dateB[i] - dateA[i]; // Descending order
+                }
+            }
+            return 0;
+        });
+        
+        // Display messages
+        sortedMessages.forEach(message => {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message-item';
+            messageElement.innerHTML = `
+                <div class="message-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    ${message.date}
+                </div>
+                <div class="message-content">
+                    ${message.content}
+                </div>
+            `;
+            messagesList.appendChild(messageElement);
+        });
+    }
+    
+    // Show messages section with animation
+    messagesSection.style.display = 'block';
+    setTimeout(() => {
+        messagesSection.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+}
+
+// Setup event listeners
+function setupEventListeners() {
+    // Close messages button
+    closeMessagesBtn.addEventListener('click', function() {
+        messagesSection.style.display = 'none';
+        // Scroll back to teachers table
+        document.querySelector('.teachers-section').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Close messages when clicking outside
+    document.addEventListener('click', function(e) {
+        if (messagesSection.style.display === 'block' && 
+            !messagesSection.contains(e.target) && 
+            !e.target.closest('.teachers-table')) {
+            messagesSection.style.display = 'none';
+        }
+    });
+    
+    // Keyboard support
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && messagesSection.style.display === 'block') {
+            messagesSection.style.display = 'none';
+        }
+    });
+}
+
+// Add search functionality (optional enhancement)
+function searchTeachers(searchTerm) {
+    const rows = teachersTableBody.querySelectorAll('tr');
+    rows.forEach(row => {
+        const teacherName = row.querySelector('.teacher-name').textContent;
+        if (teacherName.includes(searchTerm)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+// Export functions for global access
+window.showTeacherMessages = showTeacherMessages;
+window.searchTeachers = searchTeachers;
+
+
+
+
+

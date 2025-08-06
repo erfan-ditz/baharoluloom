@@ -1,314 +1,43 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هنرستان فنی حرفه‌ای بحارالعلوم</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>پیام‌های معلمان</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-    <div class="glow-background"></div>
 <body>
+    <div class="container">
+        <h1><i class="fas fa-chalkboard-teacher"></i> معلمان</h1>
+        
+        <div class="teachers-section">
+            <table class="teachers-table">
+                <thead>
+                    <tr>
+                        <th>نام معلم</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="teachersTableBody">
+                </tbody>
+            </table>
+        </div>
 
-
-    <!-- Header -->
-    <header class="header py-4">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-            <div class="logo flex items-center gap-4 mb-4 md:mb-0">
-                <div class="logo-circle">
-                    <img src="FINAL.svg" alt="لوگو هنرستان">
-                </div>
-                <div class="logo-text">
-                    <h1 class="text-xl font-bold text-gray-800">هنرستان بحارالعلوم</h1>
-                    <p class="text-sm text-gray-600 font-medium">آموزش تخصصی فنی و حرفه‌ای</p>
-                </div>
+        <div class="messages-section" id="messagesSection" style="display: none;">
+            <div class="messages-header">
+                <h2 id="selectedTeacherName"></h2>
+                <button class="close-btn" id="closeMessages">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="messages-list" id="messagesList">
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main py-8">
-        <div class="container mx-auto px-4">
-            <!-- Auto Image Slider -->
-            <section class="gallery">
-                <div class="slider-container">
-                    <div class="slide active">
-                        <img src="1.jpg" alt="   ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="2.jpg" alt=" ">
-                        <div class="slide-overlay">
-                            
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="3.jpg" alt=" ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="4.jpg" alt="  ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="5.jpg" alt=" ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="6.jpg" alt="  ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="7.jpg" alt="  ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="8.jpg" alt="  ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="9.jpg" alt="  ">
-                        <div class="slide-overlay">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero-content">
-                    <h2 class="hero-title">
-                        پیشرو در <span class="highlight">آموزش تخصصی</span> فنی و حرفه‌ای
-                    </h2>
-                    <p class="hero-subtitle">
-                        با بیش از 16 سال تجربه در تعلیم و تربیت، آماده‌سازی نیروی متخصص برای صنعت
-                    </p>
-                    <div class="hero-stats flex flex-wrap justify-center gap-8">
-                        <div class="stat text-center">
-                            <span class="stat-number">2500+</span>
-                            <span class="stat-label"> دانش‌آموز فارق التحصیل</span>
-                        </div>
-                        <div class="stat text-center">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">رشته تخصصی</span>
-                        </div>
-                        <div class="stat text-center">
-                            <span class="stat-number">16</span>
-                            <span class="stat-label">سال تجربه</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Section -->
-            <section class="services mb-16">
-                <h2 class="section-title">رشته‌های تخصصی</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="flex justify-center">
-                            <i class="fas fa-laptop-code text-4xl text-blue-600"></i>
-                        </div>
-                        <h3>شبکه و نرم افزار</h3>
-                        <p>برنامه‌نویسی، طراحی و توسعه نرم‌افزارهای کاربردی</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="flex justify-center">
-                            <i class="fas fa-car text-4xl text-blue-600"></i>
-                        </div>
-                        <h3>مکانیک خودرو</h3>
-                        <p>تعمیر و نگهداری انواع خودروهای سبک</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="flex justify-center">
-                            <i class="fas fa-calculator text-4xl text-blue-600"></i>
-                        </div>
-                        <h3>حسابداری</h3>
-                        <p>حساب و کتاب پیشرفته</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact & Info Section -->
-           
-
-            <!-- Teachers Section -->
-            <section class="teachers-section">
-                <h2 class="section-title">کادر آموزشی هنرستان</h2>
-                <div class="teachers-list">
-                    <div class="teacher-card" onclick="showTeacherModal('teacher1')">
-                        <div class="teacher-avatar" style="background-color: #3175e2;">
-                            <span>م</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>م طهمورثی</h3>
-                            <p>دروس عمومی</p>
-                        </div>
-                    </div>
-
-                    <div class="teacher-card" onclick="showTeacherModal('teacher2')">
-                        <div class="teacher-avatar" style="background-color: #2b65c2;">
-                            <span>ض</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>ض صادقی</h3>
-                            <p>ریاضی فیزیک</p>
-                        </div>
-                    </div>
-
-                    <div class="teacher-card" onclick="showTeacherModal('teacher3')">
-                        <div class="teacher-avatar" style="background-color: #4c73b1;">
-                            <span>ا</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>ا رضایی</h3>
-                            <p>شبکه و نرم‌افزار</p>
-                        </div>
-                    </div>
-
-                    <div class="teacher-card" onclick="showTeacherModal('teacher4')">
-                        <div class="teacher-avatar" style="background-color: #1c3866;">
-                            <span>م</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>م ابراهیم زاده</h3>
-                            <p>شبکه و نرم‌افزار</p>
-                        </div>
-                    </div>
-                    
-                    <div class="teacher-card" onclick="showTeacherModal('teacher5')">
-                        <div class="teacher-avatar" style="background-color: #5f6a7c;">
-                            <span>م</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>م ایمانی</h3>
-                            <p>نقشه کشی</p>
-                        </div>
-                    </div>
-
-                    <div class="teacher-card" onclick="showTeacherModal('teacher6')">
-                        <div class="teacher-avatar" style="background-color: #5192fa;">
-                            <span>ع</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>ع غلامی</h3>
-                            <p>مکانیک خودرو</p>
-                        </div>
-                    </div>
-                    
-                    <div class="teacher-card" onclick="showTeacherModal('teacher7')">
-                        <div class="teacher-avatar" style="background-color: #175fd3;">
-                            <span>س</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>س الهیاری</h3>
-                            <p>زبان انگلیسی</p>
-                        </div>
-                    </div>
-
-                    <div class="teacher-card" onclick="showTeacherModal('teacher8')">
-                        <div class="teacher-avatar" style="background-color: #456496;">
-                            <span>ع</span>
-                        </div>
-                        <div class="teacher-info">
-                            <h3>ع محمد نژاد</h3>
-                            <p>زبان عربی</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Teacher Modal -->
-            <div id="teacherModal" class="teacher-modal">
-                <div class="teacher-modal-backdrop" onclick="hideTeacherModal()"></div>
-                <div class="teacher-modal-content">
-                    <button class="teacher-close-btn" onclick="hideTeacherModal()">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                        </svg>
-                    </button>
-                    <div class="teacher-modal-body" id="teacherModalContent">
-                        <!-- محتوا توسط جاوااسکریپت پر می‌شود -->
-                    </div>
-                </div>
-            </div>
-            
-                     <section class="contact-info mb-16">
-                <h2 class="section-title">اطلاعات تماس و موقعیت</h2>
-                <div class="info-grid">
-                    <!-- Contact Card -->
-                    <div class="info-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h3>اطلاعات تماس</h3>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="label">تلفن همراه:</span>
-                                <span class="value">0912-4628582</span>
-                            </div>
-                            <div class="contact-item">
-                                <span class="label">تلفن همراه:</span>
-                                <span class="value">0912-5628898</span>
-                            </div>
-                            <div class="contact-item">
-                                <span class="label">تلفن ثابت:</span>
-                                <span class="value">0263-6517026</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Location Card -->
-                    <div class="info-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3>آدرس و موقعیت</h3>
-                        </div>
-                        <div class="location-details">
-                            <p class="address">
-                                فردیس، خیابان پانزدهم، انتهای کوچه
-                                هنرستان فنی حرفه‌ای بحارالعلوم
-                            </p>
-                        </div>
-                    </div>
-
-                         </section>
-        </div>
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container mx-auto px-4">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>هنرستان فنی حرفه‌ای بحارالعلوم</h3>
-                    <p>مرکز تخصصی آموزش فنی و حرفه‌ای با بیش از 16 سال تجربه</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 1404 هنرستان بحارالعلوم - تمامی حقوق محفوظ است</p>
-            </div>
-        </div>
-    </footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
-
 </html>
 
 
